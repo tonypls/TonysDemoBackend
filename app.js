@@ -61,7 +61,8 @@ bot.dialog('GreetingDialog',
     (session) => {
         var names = dbtools.readData().people;
         console.log(names[1].name,names);
-        session.send('Kia Ora,', names[0].name );
+        var girl = names[1].name;
+        session.send('Kia Ora,'+ girl );
         session.endDialog();
     }
 ).triggerAction({
