@@ -1,3 +1,5 @@
+// Database tools with logic for selecting males, females and over or under a given age
+
 var peopleData = require("./db.json");
 
 module.exports = {
@@ -12,7 +14,7 @@ module.exports = {
     var people= "";
     for (var i = 0; i < peopleData.people.length; i++){
       if(peopleData.people[i].gender === "female"){
-        people += peopleData.people[i].name;
+        people += peopleData.people[i].name + " ";
       }
     }
     return people;
@@ -21,7 +23,7 @@ module.exports = {
     var people= "";
     for (var i = 0; i < peopleData.people.length; i++){
       if(peopleData.people[i].gender === "male"){
-        people += peopleData.people[i].name;
+        people += peopleData.people[i].name + " ";
       }
     }
     return people;
@@ -30,7 +32,7 @@ module.exports = {
     var people= "";
     for (var i = 0; i < peopleData.people.length; i++){
       if(peopleData.people[i].age > age)
-      people += peopleData.people[i].name;
+      people += peopleData.people[i].name + " ";
     }
     return people;
   },
@@ -38,7 +40,7 @@ module.exports = {
     var people= "";
     for (var i = 0; i < peopleData.people.length; i++){
       if(peopleData.people[i].age < age)
-      people += peopleData.people[i].name;
+      people += peopleData.people[i].name + " ";
     }
     return people;
   }

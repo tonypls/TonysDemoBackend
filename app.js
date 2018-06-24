@@ -59,8 +59,7 @@ bot.recognizer(recognizer);
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
 bot.dialog('GreetingDialog',
     (session) => {
-        var names = dbtools.getNames();
-        session.send('Kia Ora, these are my friends: '+ names);
+        session.send('Kia Ora, these are my friends: '+ dbtools.getNames());
         session.endDialog();
     }
 ).triggerAction({
@@ -69,7 +68,7 @@ bot.dialog('GreetingDialog',
 
 bot.dialog('HelpDialog',
     (session) => {
-        session.send('You reached the Help intent. You said \'%s\'.', session.message.text);
+        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getMales());
         session.endDialog();
     }
 ).triggerAction({
