@@ -1,27 +1,8 @@
-## Use Azure app service editor
+## Ambit Application Demo Task @author Tony van Swet
 
-1. make code change in the online editor
+Chatbot backend for the gender and age Demo
 
-Your code changes go live as the code changes are saved.
-
-## Use Visual Studio Code
-
-### Build and debug
-1. download source code zip and extract source in local folder
-2. open the source folder in  Visual Studio Code
-3. make code changes
-4. download and run [botframework-emulator](https://emulator.botframework.com/)
-5. connect the emulator to http://localhost:3987
-
-### Publish back
-
-```
-npm run azure-publish
-```
-
-## Use continuous integration
-
-If you have setup continuous integration, then your bot will automatically deployed when new changes are pushed to the source repository.
+Currently hosted on Azure this backend folder covers the data retrieval and logic in the dbtool.js file and the conversation flow in app.js.
 
 
-
+Potentially strayed from the brief but had fun solving the problem and learning some new tricks.

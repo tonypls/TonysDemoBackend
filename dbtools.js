@@ -1,4 +1,4 @@
-// Database tools with logic for selecting males, females and over or under a given age
+// Database tools with logic for selecting males, females and over or under a given age 
 
 var peopleData = require("./db.json");
 
