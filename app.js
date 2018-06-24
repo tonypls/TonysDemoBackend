@@ -84,22 +84,14 @@ bot.dialog('getMales',
     matches: 'getMales'
 })
 
-bot.dialog('getOverAge',
-    (session, args) => {
+.matches('getOverAge', (session, args) => {
         var age = builder.EntityRecognizer.findEntity(args.entities, 'age1');
         session.send(dbtools.getOverAge(age.entity));
         session.endDialog();
-    }
-).triggerAction({
-    matches: 'getOverAge'
 })
 
-bot.dialog('getUnderAge',
-    (session, args) => {
+.matches('getUnderAge', (session, args) => {
         var age = builder.EntityRecognizer.findEntity(args.entities, 'age1');
         session.send(dbtools.getUnderAge(age.entity));
         session.endDialog();
-    }
-).triggerAction({
-    matches: 'getUnderAge'
 })
