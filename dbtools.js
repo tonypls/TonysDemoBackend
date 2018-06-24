@@ -6,7 +6,7 @@ module.exports = {
   getNames : function(){
     var people ="";
     for (var i = 0; i < peopleData.people.length; i++){
-      people += peopleData.people[i].name + " is " + peopleData.people[i].age + " years old and " +  peopleData.people[i].gender + "\n";
+      people += "\n" + peopleData.people[i].name + " is " + peopleData.people[i].age + " years old and " +  peopleData.people[i].gender;
       }
     return people;
   },
@@ -14,7 +14,7 @@ module.exports = {
     var people= "";
     for (var i = 0; i < peopleData.people.length; i++){
       if(peopleData.people[i].gender === "female"){
-        people += peopleData.people[i].name + " ";
+        people += '\n' + peopleData.people[i].name;
       }
     }
     return people;
@@ -23,7 +23,7 @@ module.exports = {
     var people= "";
     for (var i = 0; i < peopleData.people.length; i++){
       if(peopleData.people[i].gender === "male"){
-        people += peopleData.people[i].name + " ";
+        people += '\n' + peopleData.people[i].name;
       }
     }
     return people;
@@ -32,7 +32,7 @@ module.exports = {
     var people= "";
     for (var i = 0; i < peopleData.people.length; i++){
       if(peopleData.people[i].age > age)
-      people += peopleData.people[i].name + " ";
+      people += '\n' +  peopleData.people[i].name;
     }
     return people;
   },
@@ -40,7 +40,7 @@ module.exports = {
     var people= "";
     for (var i = 0; i < peopleData.people.length; i++){
       if(peopleData.people[i].age < age)
-      people += peopleData.people[i].name + " ";
+      people += '\n' +  peopleData.people[i].name;
     }
     return people;
   }

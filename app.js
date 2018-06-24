@@ -66,13 +66,13 @@ bot.dialog('GreetingDialog',
     matches: 'Greeting'
 })
 
-bot.dialog('HelpDialog',
+bot.dialog('getFemales',
     (session) => {
         session.send('Here are the females: '+ dbtools.getFemales());
         session.endDialog();
     }
 ).triggerAction({
-    matches: 'Help'
+    matches: 'getFemales'
 })
 
 bot.dialog('getMales',
@@ -86,7 +86,8 @@ bot.dialog('getMales',
 
 bot.dialog('getOverAge',
     (session) => {
-        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getMales());
+        var age = builder.EntityRecognizer.findEntity(args.entities, 'Age');
+        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getOverAge(age));
         session.endDialog();
     }
 ).triggerAction({
@@ -95,7 +96,8 @@ bot.dialog('getOverAge',
 
 bot.dialog('getUnderAge',
     (session) => {
-        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getMales());
+        var age = builder.EntityRecognizer.findEntity(args.entities, 'Age');
+        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getUnderAge(age));
         session.endDialog();
     }
 ).triggerAction({
