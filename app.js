@@ -81,7 +81,7 @@ bot.dialog('getMales',
 ).triggerAction({
     matches: 'getMales'
 })
-
+var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('getOverAge', (session, args) => {
         var age = builder.EntityRecognizer.findEntity(args.entities, 'age1');
         session.send(dbtools.getOverAge(age.entity));
