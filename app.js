@@ -39,7 +39,7 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 // This default message handler is invoked if the user's utterance doesn't
 // match any intents handled by other dialogs.
 var bot = new builder.UniversalBot(connector, function (session, args) {
-    session.send('You reached the default message handler. You said \'%s\'.');
+    session.send('Sorry I can\'t help you there');
 });
 
 bot.set('storage', tableStorage);
@@ -55,23 +55,6 @@ const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisApp
 var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
-var openString = "Hey there these are my friends: ";
-var followString = "Ask me if they are male, female, above or below a certain age";
-
-
-bot.on('conversationUpdate', function (activity) {
-  // when user joins conversation, send instructions
-  if (activity.membersAdded) {
-    activity.membersAdded.forEach(function (identity) {
-      if (identity.id === activity.address.bot.id) {
-        var openMessage = new builder.Message()
-        .address(activity.address)
-        .text(openString + dbtools.getNames() + "<br/>" + hintString);
-        bot.send(openMessage);
-      }
-    });
-  }
-});
 // Add a dialog for each intent that the LUIS app recognizes.
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
 bot.dialog('GreetingDialog',
@@ -126,3 +109,21 @@ bot.dialog('getUnderAge', [
 ]).triggerAction({
     matches: 'getUnderAge'
 })
+
+
+var openString = "Hey there these are my friends: ";
+var followString = "Ask me if they are male, female, above or below a certain age";
+
+bot.on('conversationUpdate', function (activity) {
+  // when user joins conversation, send instructions
+  if (activity.membersAdded) {
+    activity.membersAdded.forEach(function (identity) {
+      if (identity.id === activity.address.bot.id) {
+        var openMessage = new builder.Message()
+        .address(activity.address)
+        .text(openString + dbtools.getNames() + "<br/>" + hintString);
+        bot.send(openMessage);
+      }
+    });
+  }
+});
