@@ -68,18 +68,36 @@ bot.dialog('GreetingDialog',
 
 bot.dialog('HelpDialog',
     (session) => {
-        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getMales());
+        session.send('Here are the females: '+ dbtools.getFemales());
         session.endDialog();
     }
 ).triggerAction({
     matches: 'Help'
 })
 
-bot.dialog('CancelDialog',
+bot.dialog('getMales',
     (session) => {
-        session.send('You reached the Cancel intent. You said \'%s\'.', session.message.text);
+        session.send('These are the males: '+ dbtools.getMales());
         session.endDialog();
     }
 ).triggerAction({
-    matches: 'Cancel'
+    matches: 'getMales'
+})
+
+bot.dialog('getOverAge',
+    (session) => {
+        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getMales());
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'getOverAge'
+})
+
+bot.dialog('getUnderAge',
+    (session) => {
+        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getMales());
+        session.endDialog();
+    }
+).triggerAction({
+    matches: 'getUnderAge'
 })

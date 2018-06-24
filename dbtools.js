@@ -6,7 +6,7 @@ module.exports = {
   getNames : function(){
     var people ="";
     for (var i = 0; i < peopleData.people.length; i++){
-      people += peopleData.people[i].name + " is " + peopleData.people[i].age + " years old and " +  peopleData.people[i].gender + ", ";
+      people += peopleData.people[i].name + " is " + peopleData.people[i].age + " years old and " +  peopleData.people[i].gender + "\n";
       }
     return people;
   },
