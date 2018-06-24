@@ -111,8 +111,8 @@ bot.dialog('getUnderAge', [
 })
 
 
-var openString = "Hey there these are my friends: ";
-var followString = "Ask me if they are male, female, above or below a certain age";
+var openString = "Hey there, these are my friends: ";
+var followString = "Ask me who is male, female, above or below a certain age";
 
 bot.on('conversationUpdate', function (activity) {
   // when user joins conversation, send instructions
