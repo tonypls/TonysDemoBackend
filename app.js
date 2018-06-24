@@ -87,7 +87,7 @@ bot.dialog('getMales',
 bot.dialog('getOverAge',
     (session) => {
         var age = builder.EntityRecognizer.findEntity(args.entities, 'age1');
-        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getOverAge(age));
+        session.send(dbtools.getOverAge(age));
         session.endDialog();
     }
 ).triggerAction({
@@ -97,7 +97,7 @@ bot.dialog('getOverAge',
 bot.dialog('getUnderAge',
     (session) => {
         var age = builder.EntityRecognizer.findEntity(args.entities, 'age1');
-        session.send('You reached the Help intent. You said \'%s\'. '+ dbtools.getUnderAge(age));
+        session.send(dbtools.getUnderAge(age));
         session.endDialog();
     }
 ).triggerAction({
