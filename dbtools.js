@@ -1,8 +1,11 @@
 var names = require("./db.json");
 
 module.exports = {
-  readData : function(){
-    var people = names//JSON.parse(names);
+  getNames : function(){
+    var people;
+    for (var i = 0; i < names.length; i++){
+      people += names[i].name + " is " + names[i].age;
+    }
     return people;
   }
 };
