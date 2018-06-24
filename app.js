@@ -87,11 +87,11 @@ bot.dialog('getMales',
 bot.dialog('getOverAge', [
     function (session, args, next) {
         var intent = args.intent;
-        var age = builder.EntityRecognizer.findEntity(intent.entities, 'age1');
         if(!age.entity){
-           builder.Prompts.text(session, 'how old?');
+          var age = builder.EntityRecognizer.findEntity(intent.entities, 'age1');
+          builder.Prompts.text(session, 'how old?');
         } else {
-        session.send(dbtools.getOverAge(age.entity));
+          session.send(dbtools.getOverAge(age.entity));
       }
         session.endDialog();
     }
@@ -100,13 +100,13 @@ bot.dialog('getOverAge', [
 })
 
 bot.dialog('getUnderAge', [
-     function (session, args, next) {
+    function (session, args, next) {
         var intent = args.intent;
-        var age = builder.EntityRecognizer.findEntity(args.entities, 'age1');
         if(!age.entity){
-           builder.Prompts.text(session, 'how old?');
+          var age = builder.EntityRecognizer.findEntity(intent.entities, 'age1');
+          builder.Prompts.text(session, 'how old?');
         } else {
-        session.send(dbtools.getUnderAge(age.entity));
+          session.send(dbtools.getUnderAge(age.entity));
       }
         session.endDialog();
     }
