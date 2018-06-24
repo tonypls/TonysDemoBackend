@@ -1,7 +1,7 @@
 var names = require("./db.json");
 
 module.exports = {
-  function readData(){
+  readData : function(){
     return JSON.parse(names);
   }
 };
