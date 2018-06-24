@@ -38,7 +38,9 @@ var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azu
 // Create your bot with a function to receive messages from the user
 // This default message handler is invoked if the user's utterance doesn't
 // match any intents handled by other dialogs.
-var bot = new builder.UniversalBot(connector);
+var bot = new builder.UniversalBot(connector, function (session, args) {
+    session.send('You reached the default message handler. You said \'%s\'.');
+});
 
 bot.set('storage', tableStorage);
 
@@ -81,15 +83,25 @@ bot.dialog('getMales',
 ).triggerAction({
     matches: 'getMales'
 })
-var intents = new builder.IntentDialog({ recognizers: [recognizer] })
-.matches('getOverAge', (session, args) => {
-        var age = builder.EntityRecognizer.findEntity(args.entities, 'age1');
+
+bot.dialog('getOverAge', [
+    function (session, args, next) {
+        var intent = args.intent;
+        var age = builder.EntityRecognizer.findEntity(intent.entities, 'age1');
         session.send(dbtools.getOverAge(age.entity));
         session.endDialog();
+    }
+]).triggerAction({
+    matches: 'getOverAge'
 })
 
-.matches('getUnderAge', (session, args) => {
+bot.dialog('getUnderAge', [
+     function (session, args, next) {
+        var intent = args.intent;
         var age = builder.EntityRecognizer.findEntity(args.entities, 'age1');
         session.send(dbtools.getUnderAge(age.entity));
         session.endDialog();
+    }
+]).triggerAction({
+    matches: 'getUnderAge'
 })
