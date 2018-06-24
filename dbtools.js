@@ -2,6 +2,7 @@ var names = require("./db.json");
 
 module.exports = {
   readData : function(){
-    return JSON.parse(names);
+    people = JSON.parse(names);
+    return people;
   }
 };
