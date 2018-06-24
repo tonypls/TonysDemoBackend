@@ -60,8 +60,7 @@ bot.recognizer(recognizer);
 bot.dialog('GreetingDialog',
     (session) => {
         var names = dbtools.getNames();
-        console.log(names);
-        session.send('Kia Ora,'+ names);
+        session.send('Kia Ora, these are my friends: '+ names);
         session.endDialog();
     }
 ).triggerAction({
