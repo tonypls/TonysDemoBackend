@@ -121,7 +121,7 @@ bot.on('conversationUpdate', function (activity) {
       if (identity.id === activity.address.bot.id) {
         var openMessage = new builder.Message()
         .address(activity.address)
-        .text(openString + dbtools.getNames() + "<br/>" + hintString);
+        .text(openString + dbtools.getNames() + "<br/>" + followString);
         bot.send(openMessage);
       }
     });
