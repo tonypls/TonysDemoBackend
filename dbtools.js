@@ -4,7 +4,7 @@ module.exports = {
   getNames : function(){
     var people;
     for (var i = 0; i < names.length; i++){
-      people += names[i].name + " is " + names[i].age;
+      people += names.people[i].name + " is " + names.people[i].age;
       console.log(people);
     }
     return people;
