@@ -59,10 +59,9 @@ bot.recognizer(recognizer);
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
 bot.dialog('GreetingDialog',
     (session) => {
-        var names = dbtools.readData().people;
-        console.log(names[1].name,names);
-        var girl = names[1].name;
-        session.send('Kia Ora,'+ girl );
+        var names = dbtools.getNames();
+        console.log(names);
+        session.send('Kia Ora,'+ names);
         session.endDialog();
     }
 ).triggerAction({
