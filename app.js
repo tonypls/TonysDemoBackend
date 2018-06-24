@@ -5,6 +5,8 @@ A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework.
 var restify = require('restify');
 var builder = require('botbuilder');
 var botbuilder_azure = require("botbuilder-azure");
+var tools = require('./tools.js');
+var path = require('path');
 var names = require("./db.json");
 
 // Setup Restify Server
