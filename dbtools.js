@@ -3,10 +3,9 @@ var peopleData = require("./db.json");
 module.exports = {
   getNames : function(){
     var people;
-    for (var i = 0; i < peopleData.people.length; i++){
-      people += peopleData.people[i].name + " is an" + peopleData.people[i].age + " year old " +  peopleData.people[i].gender + ", ";
-      console.log(people);
-    }
+    for (var i = 1; i < peopleData.people.length; i++){
+      people += peopleData.people[i].name + " is " + peopleData.people[i].age + " years old and" +  peopleData.people[i].gender + ", ";
+      }
     return people;
   }
   // getFemales : function(){
