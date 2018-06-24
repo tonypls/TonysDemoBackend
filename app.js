@@ -5,7 +5,7 @@ A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework.
 var restify = require('restify');
 var builder = require('botbuilder');
 var botbuilder_azure = require("botbuilder-azure");
-//var tools = require('./tools.js');
+var dbtools = require('./dbtools.js');
 var path = require('path');
 var names = require("./db.json");
 
@@ -59,7 +59,8 @@ bot.recognizer(recognizer);
 // See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis
 bot.dialog('GreetingDialog',
     (session) => {
-        session.send('Kia Ora,', names );
+        var names = dbtools.readData();
+        session.send('Kia Ora,', names.people.name );
         session.endDialog();
     }
 ).triggerAction({
